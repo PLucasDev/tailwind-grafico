@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+          // Load the Visualization API and the piechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table, 
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+      // Create the data table.
+      var data1 = new google.visualization.DataTable();
+      data1.addColumn('string', 'Topping');
+      data1.addColumn('number', 'Slices');
+      data1.addRows([
+        [, 62],
+        [, 20],
+        [, 15]
+      ]);
+
+     // Set chart options
+      var options1 = {'legend':'none',
+                     'width':225,
+                     'height':255,
+                     pieStartAngle:100,};
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart1 = new google.visualization.PieChart(document.getElementById('chart_div1'));
+      chart1.draw(data1, options1);
+
+
+      ////////////////
+
+
+      var data2 = new google.visualization.DataTable();
+      data2.addColumn('string', 'Topping');
+      data2.addColumn('number', 'Slices');
+      data2.addRows([
+        [, 62],
+        [, 20],
+        [, 15]
+      ]);
+
+     // Set chart options
+      var options2 = {'legend':'none',
+                     'width':225,
+                     'height':255,
+                     'pieSliceText': 'percentage',
+                     pieHole: 0.4, //furo na pizza
+                     pieStartAngle:100,}; // gira a pizza
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
+      chart2.draw(data2, options2);
+    }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <title> Grafico 2 - TW </title>
+
+</head>
+
+<body class=" w-screen flex  bg-blue-800 py-3 px-3">
+
+    <link rel= " stylesheet " href= " https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css " />
+
+
+    <!--          -->
+    <!-- Esquerda -->
+    <!--          -->
+
+    <div class=" ml-8 w-44 ">
+
+        <div class=" border border-b-blue-700 border-t-blue-800 border-r-blue-800 border-l-blue-800 flex mr-3 px-2">
+
+            <img src="img/logo-defult@2x.png" class=" w-30 h-11 h-12 ml-12 mb-1 ">
+
+        </div>
+
+
+        <!--   -->
+        <!--   -->
+        <div x-data="{ Dashboard: false }" class=" mt-5 mr-3.5 ">
+
+            <button @click="Dashboard = !Dashboard" @click.away="Dashboard = false" class="flex h-10  text-white  ">
+
+                <svg class="h-4 w-4 ml-2.5 mr-2 mt-1" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
+                  </svg>
+
+                <span class=" ml-0.5 mr-2 text-xs mt-1 "> Dashboard </span>
+
+                <svg x-bind:class=" Dashboard ? 'rotate-180 duration-300' : 'rotate-0 duration-300' " class="h-5 w-5 mt-1 ml-7" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                  </svg>
+
+
+            </button>
+
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2  text-white text-opacity-50 hover:text-opacity-100 rounded-t-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs  "> OverView  1 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 focus:text-opacity-100 " >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  2 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  3 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 rounded-b-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  4 </span>
+
+
+                </button>
+
+            </div>     
+        </div>
+
+
+        <!--   -->
+        <!--   -->
+        <div x-data="{ Dashboard: false }" class=" mt-2 mr-3.5  ">
+
+            <button @click="Dashboard = !Dashboard" @click.away="Dashboard = false" class="flex h-10  text-white  ">
+
+                <svg class="h-4 w-4 ml-2.5 mt-0.5" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
+                  </svg>
+
+                <span class=" ml-2 text-xs mt-0.5 "> E-Commerce </span>
+
+                <svg x-bind:class=" Dashboard ? 'rotate-180 duration-300' : 'rotate-0 duration-300' " class="h-5 w-5 mt-1 ml-7" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                  </svg>
+
+
+            </button>
+
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2  text-white text-opacity-50 hover:text-opacity-100 rounded-t-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-sm  "> OverView  1 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 focus:text-opacity-100 " >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-sm "> OverView  2 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-sm "> OverView  3 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 rounded-b-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-sm "> OverView  4 </span>
+
+
+                </button>
+
+            </div>     
+        </div>
+
+
+        <!--   -->
+        <!--   -->
+        <div class=" flex mt-0 text-white px-2 ">
+
+            <svg class=" h-4 w-4 mt-0.5 mr-2.5 " data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z"></path>
+              </svg>
+
+            <button class="text-xs" > inBox </button>
+
+        </div>
+
+
+        <!--   -->
+        <!--   -->
+        <div class=" flex mt-5 text-white px-2 ">
+
+            <svg class=" h-4 w-4 mt-0.5 mr-2.5 " data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z"></path>
+              </svg>
+
+            <button class="text-xs" > Point of Sale </button>
+
+        </div>
+
+
+        <!--   -->
+        <!--   -->
+        <div class=" flex mt-5 text-white px-2 ">
+
+        <svg class=" h-4 w-4 mt-0.5 mr-2.5 " data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"></path>
+          </svg>
+
+            <button class="text-xs" > Chat </button>
+
+        </div>
+
+
+        <!--   -->
+        <!--   -->
+        <div class=" flex mt-5 text-white px-2 ">
+
+            <svg class=" h-4 w-4 mt-0.5 mr-2.5 " data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"></path>
+              </svg>
+    
+                <button class="text-xs" > post </button>
+    
+        </div>
+
+
+        <!--   -->
+        <!--   -->
+        <div class=" flex mt-5 text-white px-2">
+
+            <svg class=" h-4 w-4 mt-0.5 mr-2.5 " data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"></path>
+              </svg>
+    
+                <button class="text-xs" > calendar </button>
+    
+        </div>
+
+
+        <!--   -->
+        <!--   -->
+        <div class=" mr-3 border border-b-blue-700 border-t-blue-800 border-l-blue-800 border-r-blue-800 bg-blue-800 h-7"> </div>
+
+
+        <!--   -->
+        <!--   -->
+        <div x-data="{ Dashboard: false }" class=" mt-5 mr-3.5  ">
+
+            <button @click="Dashboard = !Dashboard" @click.away="Dashboard = false" class="flex h-10  text-white  ">
+                
+                <svg class="h-4 w-4 ml-2.5 mr-2 mt-1" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"></path>
+                  </svg>
+
+                <span class=" ml-0.5 mr-9 text-xs mt-1 "> Crud </span>
+
+                <svg x-bind:class=" Dashboard ? 'rotate-180 duration-300' : 'rotate-0 duration-300' " class="h-5 w-5 mt-1 ml-7" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                  </svg>
+
+
+            </button>
+
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2  text-white text-opacity-50 hover:text-opacity-100 rounded-t-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs  "> OverView  1 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 focus:text-opacity-100 " >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  2 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  3 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 rounded-b-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  4 </span>
+
+
+                </button>
+
+            </div>     
+        </div>
+
+
+        <!--   -->
+        <!--   -->
+        <div x-data="{ Dashboard: false }" class=" mt-1 mr-3.5  ">
+
+            <button @click="Dashboard = !Dashboard" @click.away="Dashboard = false" class="flex h-10  text-white  ">
+                
+                <svg class="h-4 w-4 ml-2.5 mr-2 mt-1" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"></path>
+                  </svg>
+
+                <span class=" ml-0.5 mr-8 text-xs mt-1 "> Users </span>
+
+                <svg x-bind:class=" Dashboard ? 'rotate-180 duration-300' : 'rotate-0 duration-300' " class="h-5 w-5 mt-1 ml-7" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                  </svg>
+
+
+            </button>
+
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2  text-white text-opacity-50 hover:text-opacity-100 rounded-t-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs  "> OverView  1 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 focus:text-opacity-100 " >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  2 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  3 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 rounded-b-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  4 </span>
+
+
+                </button>
+
+            </div>     
+        </div>
+
+
+        <!--   -->
+        <!--   -->
+        <div x-data="{ Dashboard: false }" class=" mt-1 mr-3.5  ">
+
+            <button @click="Dashboard = !Dashboard" @click.away="Dashboard = false" class="flex h-10  text-white  ">
+                
+                <svg class="h-4 w-4 ml-2.5 mr-2 mt-1" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z"></path>
+                  </svg>
+
+                <span class=" ml-0.5 mr-8 text-xs mt-1 "> profile </span>
+
+                <svg x-bind:class=" Dashboard ? 'rotate-180 duration-300' : 'rotate-0 duration-300' " class="h-5 w-5 mt-1 ml-6" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                  </svg>
+
+
+            </button>
+
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2  text-white text-opacity-50 hover:text-opacity-100 rounded-t-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs  "> OverView  1 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 focus:text-opacity-100 " >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  2 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  3 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 rounded-b-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  4 </span>
+
+
+                </button>
+
+            </div>     
+        </div>
+
+
+        <!--   -->
+        <!--   -->
+        <div x-data="{ Dashboard: false }" class=" mt-1 mr-3.5  ">
+
+            <button @click="Dashboard = !Dashboard" @click.away="Dashboard = false" class="flex h-10  text-white  ">
+                
+                <svg class="h-4 w-4 ml-2.5 mr-2 mt-1" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z"></path>
+                  </svg>
+
+                <span class=" ml-0.5 mr-9 text-xs mt-1 "> pages </span>
+
+                <svg x-bind:class=" Dashboard ? 'rotate-180 duration-300' : 'rotate-0 duration-300' " class="h-5 w-5 mt-1 ml-6" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                  </svg>
+
+
+            </button>
+
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2  text-white text-opacity-50 hover:text-opacity-100 rounded-t-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs  "> OverView  1 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 focus:text-opacity-100 " >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  2 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  3 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 rounded-b-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  4 </span>
+
+
+                </button>
+
+            </div>     
+        </div>
+
+
+        <!--   -->
+        <!--   -->
+        <div x-data="{ Dashboard: false }" class=" mt-12 mr-3.5  ">
+
+            <button @click="Dashboard = !Dashboard" @click.away="Dashboard = false" class="flex h-10  text-white  ">
+                
+                <i class="bi bi-inbox h-4 w-4 ml-2.5 mr-2 mt-0.5"></i>
+
+                <span class=" ml-0.5 mr-1.5 text-xs mt-1 "> components </span>
+
+                <svg x-bind:class=" Dashboard ? 'rotate-180 duration-300' : 'rotate-0 duration-300' " class="h-5 w-5 mt-1 ml-5" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                  </svg>
+
+
+            </button>
+
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2  text-white text-opacity-50 hover:text-opacity-100 rounded-t-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs  "> OverView  1 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 focus:text-opacity-100 " >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  2 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  3 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 rounded-b-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  4 </span>
+
+
+                </button>
+
+            </div>     
+        </div>
+
+
+        <!--   -->
+        <!--   -->
+        <div x-data="{ Dashboard: false }" class=" mt-1 mr-3.5  ">
+
+            <button @click="Dashboard = !Dashboard" @click.away="Dashboard = false" class="flex h-10  text-white  ">
+                
+                <i class="bi bi-layout-sidebar h-4 w-4 ml-2.5 mr-2 mt-0.5 "></i>
+
+                <span class=" ml-0.5 mr-4 text-xs mt-1.5 "> forms </span>
+
+                <svg x-bind:class=" Dashboard ? 'rotate-180 duration-300' : 'rotate-0 duration-300' " class="h-5 w-5 mt-1 ml-12" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                  </svg>
+
+
+            </button>
+
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2  text-white text-opacity-50 hover:text-opacity-100 rounded-t-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs  "> OverView  1 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 focus:text-opacity-100 " >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  2 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  3 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 rounded-b-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  4 </span>
+
+
+                </button>
+
+            </div>     
+        </div>
+
+
+        
+        <!--   -->
+        <!--   -->
+        <div x-data="{ Dashboard: false }" class=" mt-1 mr-3.5  ">
+
+            <button @click="Dashboard = !Dashboard" @click.away="Dashboard = false" class="flex h-10  text-white  ">
+                
+                <i class="bi bi-inboxes h-4 w-4 ml-2.5 mr-2 mt-0.5 "></i>
+
+                <span class=" ml-0.5 mr-4 text-xs mt-1.5 "> Widgets </span>
+
+                <svg x-bind:class=" Dashboard ? 'rotate-180 duration-300' : 'rotate-0 duration-300' " class="h-5 w-5 mt-1 ml-9" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                  </svg>
+
+
+            </button>
+
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2  text-white text-opacity-50 hover:text-opacity-100 rounded-t-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs  "> OverView  1 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 focus:text-opacity-100 " >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  2 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  3 </span>
+
+
+                </button>
+
+            </div>
+
+
+            <!--   -->
+            <!--   -->
+            <div x-show="Dashboard" x-transition:enter.duration.500ms x-transition:leave.duration.400ms >
+
+                <button class=" w-full h-10 flex bg-blue-900 py-2 text-white text-opacity-50 hover:text-opacity-100 rounded-b-lg" >
+
+                    <i class="bi bi-activity ml-2.5 "></i>
+
+                    <span class=" ml-2.5 text-xs "> OverView  4 </span>
+
+
+                </button>
+
+            </div>     
+        </div>
+        
+
+
+    </div>
+
+    <!--          -->
+    <!-- Direita  -->
+    <!--          -->
+
+
+    <div class="bg-gray-100 rounded-3xl px-5 pb-5 w-full mr-7">
+
+        <div class=" ">
+
+            <div class="grid-cols-2 m-3 flex justify-between ml-3">
+
+                <div class="cols-span-1">
+                    <a class="text-sm text-blue-500 active:text-blue-800 cursor-pointer select-none "> Aplication</a> <span
+                        class="text-sm"> > Dashboard 
+                    </span>
+                </div>
+
+                <div class=" flex bg-gray-300 rounded-full text-xs h-6 w-36  ">
+                    <input type="text" placeholder="Search.."
+                        class="bg-transparent pl-3 border-none rounded-full w-full outline-none focus: outline-none">
+
+                    <svg class="h-5 w-5 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
+                        height="100" viewBox="0 0 50 50">
+                        <path
+                            d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z">
+                        </path>
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+
+        <div
+            class=" flex justify-between border border-t-gray-200 border-b-gray-100 border-l-gray-100 border-r-gray-100">
+
+            <div class="ml-3 mt-7 text-sm ">General Report</div>
+
+            <div class="mr-2 mt-7 text-xs flex gap-2">
+
+                <svg class="w-5 h-5 hover:rotate-45 " xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                </svg>
+                <a class=" text-sm" >
+                  Reloading Data
+                </a>
+            </div>
+
+        </div>
+
+        <div class="flex grid grid-cols-5">
+
+
+            <!-- Primeiro Quadrado -->
+            <div class="relative  ">
+                <div class=" shadow-md h-32 w-48 bg-white rounded-lg relative z-20 ml-4 mt-5 mr-5 grid grid-cols-1 ">
+
+
+                    <div class=" flex justify-between">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="
+                            h-5 w-5 ml-3 mt-4 text-blue-900">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                        </svg>
+
+                        <div class="flex h-7 mr-3 mt-3 bg-green-500 gap-0.5 rounded-full">
+                            <span class="text-xs text-white ml-1.5 mt-1.5">
+                                33%
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="h-3 w-3 mr-1.5 mt-2 text-white ">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                            </svg>
+
+                        </div>
+
+
+                    </div>
+                    <div class="">
+                        <span class="ml-2 mb-2 text-blue-900 font-bold text-xl">4.710</span>
+                    </div>
+                    <div class=" relative">
+                        <span class="absolute text-xs ml-2 -mt-4 text-gray-600 ">Items Sales</span>
+                    </div>
+                </div>
+                <!-- Linha de baixo -->
+                <div class=" shadow-lg h-3 w-40 rounded-lg absolute start-2 -bottom-1.5 z-10 ml-6"></div>
+            </div>
+
+
+            <!-- Segundo Quadrado -->
+            <div class="relative ">
+                <div class=" shadow-md h-32 w-48 bg-white  rounded-lg relative z-20 ml-4 mt-5 mr-5 grid grid-cols-1 ">
+
+
+                    <div class=" flex justify-between">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="
+                            h-5 w-5 ml-3 mt-4 text-orange-400">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
+                        </svg>
+
+
+                        <div class="flex h-7 mr-3 mt-3 bg-red-700 gap-0.5 rounded-full">
+                            <span class="text-xs text-white ml-1.5 mt-1.5">
+                                2%
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="h-3 w-3 mr-1.5 mt-2 text-white ">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                            </svg>
+
+                        </div>
+
+
+                    </div>
+                    <div class="">
+                        <span class="ml-2 mb-2 text-blue-900 font-bold text-xl">3.721</span>
+                    </div>
+                    <div class=" relative">
+                        <span class="absolute text-xs ml-2 -mt-4 text-gray-600 ">Items Sales</span>
+                    </div>
+                </div>
+                <!-- Linha de baixo -->
+                <div class="shadow-lg h-3 w-40 rounded-lg absolute start-2 -bottom-1.5 z-10 ml-6"></div>
+            </div>
+
+
+            <!-- Terceiro Quadrado -->
+            <div class="relative ">
+                <div class=" shadow-md h-32 w-48 bg-white  rounded-lg relative z-20 ml-4 mt-5 mr-5 grid grid-cols-1 ">
+
+
+                    <div class=" flex justify-between">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="
+                            h-5 w-5 ml-3 mt-4 text-yellow-400">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6 20.25h12m-7.5-3v3m3-3v3m-10.125-3h17.25c.621 0 1.125-.504 1.125-1.125V4.875c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125Z" />
+                        </svg>
+
+                        <div class="flex h-7 mr-3 mt-3 bg-green-500 gap-0.5 rounded-full">
+                            <span class="text-xs text-white ml-1.5 mt-1.5">
+                                12%
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="h-3 w-3 mr-1.5 mt-2 text-white ">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                            </svg>
+
+                        </div>
+
+
+                    </div>
+                    <div class="">
+                        <span class="ml-2 mb-2 text-blue-900 font-bold text-xl">2.149</span>
+                    </div>
+                    <div class=" relative">
+                        <span class="absolute text-xs ml-2 -mt-4 text-gray-600 ">Items Sales</span>
+                    </div>
+                </div>
+                <!-- Linha de baixo -->
+                <div class="shadow-lg h-3 w-40 rounded-lg absolute start-2 -bottom-1.5 z-10 ml-6"></div>
+            </div>
+
+
+            <!-- Quarto Quadrado -->
+            <div class="relative mr-5 ">
+                <div class=" shadow-md h-32 w-48 bg-white  rounded-lg relative z-20 ml-4 mt-5 mr-4 grid grid-cols-1 ">
+
+
+                    <div class=" flex justify-between">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="
+                            h-5 w-5 ml-3 mt-4 text-green-400">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                        </svg>
+
+
+                        <div class="flex h-7 mr-3 mt-3 bg-green-500 gap-0.5 rounded-full">
+                            <span class="text-xs text-white ml-1.5 mt-1.5">
+                                22%
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="h-3 w-3 mr-1.5 mt-2 text-white ">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                            </svg>
+
+                        </div>
+
+
+                    </div>
+                    <div class="">
+                        <span class="ml-2 mb-2 text-blue-900 font-bold text-xl">152.040</span>
+                    </div>
+                    <div class=" relative">
+                        <span class="absolute text-xs ml-2 -mt-4 text-gray-600 ">Items Sales</span>
+                    </div>
+                </div>
+                <!-- Linha de baixo -->
+                <div class="shadow-lg h-3 w-40 rounded-lg absolute start-2 -bottom-1.5 z-10 ml-6"></div>
+            </div>
+
+
+            <!-- Quinto Quadrado -->
+            <div class="relative mr-5 ">
+                <div class=" shadow-md h-32 w-48 bg-white  rounded-lg relative z-20 mt-5 grid grid-cols-1 ">
+
+
+                    <div class=" flex justify-between">
+
+                        <i class="bi bi-bag-check h-6 w-6 ml-3 mt-4 text-green-400 "></i>
+
+
+                        <div class="flex h-7 mr-3 mt-3 bg-green-500 gap-0.5 rounded-full">
+                            <span class="text-xs text-white ml-1.5 mt-1.5">
+                                22%
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="h-3 w-3 mr-1.5 mt-2 text-white ">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                            </svg>
+
+                        </div>
+
+
+                    </div>
+                    <div class="">
+                        <span class="ml-2 mb-2 text-blue-900 font-bold text-xl">152.040</span>
+                    </div>
+                    <div class=" relative">
+                        <span class="absolute text-xs ml-2 -mt-4 text-gray-600 ">Items Sales</span>
+                    </div>
+                </div>
+                <!-- Linha de baixo -->
+                <div class="shadow-lg h-3 w-40 rounded-lg absolute start-2 -bottom-1.5 z-10 ml-6"></div>
+            </div>
+
+
+
+        </div>
+
+        <!-- hw-80 mais proximo -->
+
+        <div class=" ml-4 mt-8 mb-3 h-10">
+
+
+            <div class="flex">
+
+                <span class="text-sm font-bold mr-48 mt-1.5"> Sales Report </span>
+
+                <div class="ml-20 mr-6 bg-white border-none shadow-sm h-7 w-52 text-sm text-gray-500 flex">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="h-5 w-5 mt-1 ml-1">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                    </svg>
+
+
+                    <span class="py-1 px-2">
+                        17 Sep,2024 - 17 Oct,2024
+                    </span>
+                </div>
+
+                <span class="text-sm font-bold ml-12 mt-1.5 mr-8">Weekly Top Sel...</span>
+                <span class="text-sm font-bold ml-3 mt-1.5 mr-14">Show M...</span>
+
+                <span class="text-sm font-bold ml-3 mt-1.5 mr-9">Sales Report</span>
+                <span class="text-sm font-bold ml-7 mt-1.5">Show More</span>
+
+
+            </div>
+
+
+        </div>
+
+        <div class=" grid grid-cols-12 ml-4">
+
+            <!-- Grafico em linha -->
+            <div class=" col-span-6 h-96">
+
+                <img class=" h-full border-none shadow-md " src="img/$15,000 This Month.png">
+
+            </div>
+
+            <!-- Grafico em pizza h-40 w-40 -->
+            <div class=" ml-4 col-span-3 bg-white border-none shadow-md h-full w-56 ">
+
+    <div  id="chart_div1" style="width:200; height:100"></div>
+
+    <div class="ml-10">
+        <span class=" text-blue-900 ">•</span>
+        <span class=" text-sm "> 17-30 years old</span>
+        <span class=" text-sm ml-2.5 font-bold ">62%</span> <br>
+
+    </div>
+    
+    <div class="mt-2 ml-10">
+        <span class=" text-orange-400 ">•</span>
+        <span class=" text-sm "> 31-50 years old</span>
+        <span class=" text-sm ml-2.5 font-bold ">33%</span> <br>
+
+    </div>
+
+    <div class="mt-2 ml-10">
+        <span class=" text-yellow-300 ">•</span>
+        <span class=" text-sm "> >= 50 years old</span>
+        <span class=" text-sm ml-2.5 font-bold ">10%</span> <br>
+
+    </div>
+
+
+            </div>
+
+            <!-- Grafico em rosquinha -->
+            <div class=" ml-4 col-span-3 bg-white border-none shadow-md h-full w-56 ">
+
+            <div id="chart_div2" style="width:100; height:100"></div>
+
+            <div class="ml-10">
+                <span class=" text-blue-900 ">•</span>
+                <span class=" text-sm "> 17-30 years old</span>
+                <span class=" text-sm ml-2.5 font-bold ">62%</span> <br>
+        
+            </div>
+            
+            <div class="mt-2 ml-10">
+                <span class=" text-orange-400 ">•</span>
+                <span class=" text-sm "> 31-50 years old</span>
+                <span class=" text-sm ml-2.5 font-bold ">33%</span> <br>
+        
+            </div>
+        
+            <div class="mt-2 ml-10">
+                <span class=" text-yellow-300 ">•</span>
+                <span class=" text-sm "> >= 50 years old</span>
+                <span class=" text-sm ml-2.5 font-bold ">10%</span> <br>
+        
+            </div>
+
+
+            </div>
+
+
+        </div>
+
+        <div class="flex">
+
+            <a class=" text-sm font-bold mt-6 ml-4 mr-80 "> Official Store </a>
+
+            <div class=" h-7 rounded-sm bg-white border-none shadow-md mt-5 ml-48 flex">
+
+                <?xml version="1.0" ?><svg class="h-5 w-5 ml-2 mt-1.5" viewBox="0 0 32 32"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <title />
+                    <g data-name="locate location map pin" id="locate_location_map_pin">
+                        <path
+                            d="M23.78,6.15A11,11,0,0,0,8.22,21.71l4.1,4.1a1,1,0,1,0,1.42-1.42l-4.1-4.1a9,9,0,1,1,12.72,0l-7.07,7.07a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l7.07-7.07A11,11,0,0,0,23.78,6.15Z" />
+                        <path d="M21,14a5,5,0,1,0-5,5A5,5,0,0,0,21,14Zm-8,0a3,3,0,1,1,3,3A3,3,0,0,1,13,14Z" />
+                    </g>
+                </svg>
+
+
+                <input type="text" placeholder="Filter by city" class=" ml-5 text-sm bg-transparent ">
+
+            </div>
+
+            <a class="text-sm font-bold ml-5 mt-6">
+                Weekly Best Sellers
+            </a>
+
+        </div>
+
+        <div class="grid grid-cols-12 mt-5 ml-4 mr-4 gap-5">
+
+            <!-- Imagem da esquerda -->
+            <div class="col-span-8 bg-white border-none shadow-md pt-1.5">
+
+                <p class="text-sm px-3 mt-3">250 official stores in 21 countries, click the marker to see locations
+                    details</p>
+
+                <img src="img/Captura de tela 2024-09-23 152343.png" class="w-full h-80 px-3 py-2 mt-4">
+
+            </div>
+
+            <!-- Imagens da direita -->
+            <div class="col-span-4 ">
+
+
+                <!-- Primeiro bloco -->
+                <div class=" bg-white border-none shadow-md mb-3 h-16 flex">
+
+                    <img src="img/pessoa1.jpeg" class="h-9 w-9 mt-3.5 ml-2.5">
+
+                    <p class="text-sm mt-3 ml-5 mr-32 "> Roberta De Niro <br> 05 august 2022</p>
+
+                    <div class="bg-green-400 mt-5 ml-2.5 h-5 w-16 rounded-full">
+                        <p class="text-xs mt-0.5 ml-1.5 text-white ">137 Sales</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Segundo bloco -->
+                <div class=" bg-white border-none shadow-md mb-3 h-16 flex">
+
+                    <img src="img/pessoa2.png" class="h-9 w-9 mt-3.5 ml-2.5">
+
+                    <p class="text-sm mt-3 ml-5 mr-32"> Matt Damon <br> 05 august 2022</p>
+
+                    <div class="bg-green-400 mt-5 ml-2.5 h-5 w-16 rounded-full">
+                        <p class="text-xs mt-0.5 ml-1.5 text-white ">137 Sales</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Terceiro bloco -->
+                <div class=" bg-white border-none shadow-md mb-3 h-16 flex">
+
+                    <img src="img/pessoa3.png" class="h-9 w-9 mt-3.5 ml-2.5">
+
+                    <p class="text-sm mt-3 ml-5 mr-32"> Leticia DiCaprio <br> 05 august 2022</p>
+
+                    <div class="bg-green-400 mt-5 ml-2.5 h-5 w-16 rounded-full">
+                        <p class="text-xs mt-0.5 ml-1.5 text-white ">137 Sales</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Quarto bloco -->
+                <div class=" bg-white border-none shadow-md mb-3 h-16 flex">
+
+                    <img src="img/pessoa4.png" class="h-9 w-9 mt-3.5 ml-2.5">
+
+                    <p class="text-sm mt-3 ml-5 mr-32 "> Christian Bale <br> 05 august 2022</p>
+
+                    <div class="bg-green-400 mt-5 ml-2.5 h-5 w-16 rounded-full">
+                        <p class="text-xs mt-0.5 ml-1.5 text-white ">137 Sales</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Quinto bloco -->
+                <div class=" bg-gray-100 border-2 h-16 grid justify-items-center  ">
+
+                    <p class="text-sm mt-5 text-gray-500 hover:text-gray-400 cursor-pointer select-none ">View More</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class=" mt-6 ml-5">
+
+            <a class="text-sm font-bold "> Weekly Top Products </a>
+
+        </div>
+
+        <div class="ml-4 mb-5 mt-6 flex">
+
+            <a class=" text-sm font-bold mr-1">IMAGES</a>
+            <a class=" text-sm font-bold ml-24 mr-36">PRODUTC NAME</a>
+            <a class=" text-sm font-bold ml-24 mr-64">STOCK</a>
+            <a class=" text-sm font-bold ml-16">STATUS</a>
+            <a class=" text-sm font-bold ml-20">ACTIONS</a>
+
+        </div>
+
+        <!-- Primeira Coluna  -->
+        <div class="bg-white border-none shadow-md rounded-lg ml-4 mr-4 relative flex">
+
+            <img src="Div5/v-Photoroom.png" class="h-12 w-12 ml-2 mr-12">
+
+            <div class=" ml-12">
+
+                <p class="text-sm mt-1 mr-52 "> Sony A7 III <br> Photography </p>
+
+            </div>
+
+            <a class="text-sm mt-3 ml-16 mr-14">50</a>
+
+            <div class=" ml-72 mt-2 flex border-r h-8 w-20 ">
+
+                <svg class="text-red-700 h-4 w-5 mt-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M20 11.83a1 1 0 0 0-1 1v5.57a.6.6 0 0 1-.6.6H5.6a.6.6 0 0 1-.6-.6V5.6a.6.6 0 0 1 .6-.6h9.57a1 1 0 1 0 0-2H5.6A2.61 2.61 0 0 0 3 5.6v12.8A2.61 2.61 0 0 0 5.6 21h12.8a2.61 2.61 0 0 0 2.6-2.6v-5.57a1 1 0 0 0-1-1" />
+                    <path fill="currentColor"
+                        d="M10.72 11a1 1 0 0 0-1.44 1.38l2.22 2.33a1 1 0 0 0 .72.31a1 1 0 0 0 .72-.3l6.78-7a1 1 0 1 0-1.44-1.4l-6.05 6.26Z" />
+                </svg>
+
+                <a class="text-sm text-red-700 mt-1 ">Inactive</a>
+
+            </div>
+
+            <div class=" flex ml-6 ">
+
+                <svg class="text-red-700 h-4 w-5 mt-4" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M20 11.83a1 1 0 0 0-1 1v5.57a.6.6 0 0 1-.6.6H5.6a.6.6 0 0 1-.6-.6V5.6a.6.6 0 0 1 .6-.6h9.57a1 1 0 1 0 0-2H5.6A2.61 2.61 0 0 0 3 5.6v12.8A2.61 2.61 0 0 0 5.6 21h12.8a2.61 2.61 0 0 0 2.6-2.6v-5.57a1 1 0 0 0-1-1" />
+                    <path fill="currentColor"
+                        d="M10.72 11a1 1 0 0 0-1.44 1.38l2.22 2.33a1 1 0 0 0 .72.31a1 1 0 0 0 .72-.3l6.78-7a1 1 0 1 0-1.44-1.4l-6.05 6.26Z" />
+                </svg>
+
+                <a class="text-sm text-red-700 mt-3.5">Inactive</a>
+
+
+                <svg class=" h-4 w-5 mt-4 ml-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M21 6h-5V4.33A2.42 2.42 0 0 0 13.5 2h-3A2.42 2.42 0 0 0 8 4.33V6H3a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 4.33c0-.16.21-.33.5-.33h3c.29 0 .5.17.5.33V6h-4ZM18 19a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V8h12Z" />
+                    <path fill="currentColor"
+                        d="M9 17a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1m6 0a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1" />
+                </svg>
+
+                <a class="text-sm mt-3.5 "> Delete</a>
+
+            </div>
+
+
+        </div>
+
+        <!-- Segunda Coluna  -->
+        <div class="bg-white border-none shadow-md rounded-lg ml-4 mr-4 mt-2 relative flex">
+
+            <img src="Div5/v-Photoroom.png" class="h-12 w-12 ml-2 mr-12">
+
+            <div class=" ml-12">
+
+                <p class="text-sm mt-1 mr-52 "> Nikon z6 <br> Photography </p>
+
+            </div>
+
+            <a class="text-sm mt-3 ml-16 mr-14">50</a>
+
+            <div class=" ml-72 mt-2 flex border-r h-8 w-20 ">
+
+                <svg class="text-red-700 h-4 w-5 mt-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M20 11.83a1 1 0 0 0-1 1v5.57a.6.6 0 0 1-.6.6H5.6a.6.6 0 0 1-.6-.6V5.6a.6.6 0 0 1 .6-.6h9.57a1 1 0 1 0 0-2H5.6A2.61 2.61 0 0 0 3 5.6v12.8A2.61 2.61 0 0 0 5.6 21h12.8a2.61 2.61 0 0 0 2.6-2.6v-5.57a1 1 0 0 0-1-1" />
+                    <path fill="currentColor"
+                        d="M10.72 11a1 1 0 0 0-1.44 1.38l2.22 2.33a1 1 0 0 0 .72.31a1 1 0 0 0 .72-.3l6.78-7a1 1 0 1 0-1.44-1.4l-6.05 6.26Z" />
+                </svg>
+
+                <a class="text-sm text-red-700 mt-1 ">Inactive</a>
+
+            </div>
+
+            <div class=" flex ml-6 ">
+
+                <svg class="text-red-700 h-4 w-5 mt-4" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M20 11.83a1 1 0 0 0-1 1v5.57a.6.6 0 0 1-.6.6H5.6a.6.6 0 0 1-.6-.6V5.6a.6.6 0 0 1 .6-.6h9.57a1 1 0 1 0 0-2H5.6A2.61 2.61 0 0 0 3 5.6v12.8A2.61 2.61 0 0 0 5.6 21h12.8a2.61 2.61 0 0 0 2.6-2.6v-5.57a1 1 0 0 0-1-1" />
+                    <path fill="currentColor"
+                        d="M10.72 11a1 1 0 0 0-1.44 1.38l2.22 2.33a1 1 0 0 0 .72.31a1 1 0 0 0 .72-.3l6.78-7a1 1 0 1 0-1.44-1.4l-6.05 6.26Z" />
+                </svg>
+
+                <a class="text-sm text-red-700 mt-3.5">Inactive</a>
+
+
+                <svg class=" h-4 w-5 mt-4 ml-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M21 6h-5V4.33A2.42 2.42 0 0 0 13.5 2h-3A2.42 2.42 0 0 0 8 4.33V6H3a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 4.33c0-.16.21-.33.5-.33h3c.29 0 .5.17.5.33V6h-4ZM18 19a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V8h12Z" />
+                    <path fill="currentColor"
+                        d="M9 17a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1m6 0a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1" />
+                </svg>
+
+                <a class="text-sm mt-3.5 "> Delete</a>
+
+            </div>
+
+
+        </div>
+
+        <!-- Terceira Coluna  -->
+        <div class="bg-white border-none shadow-md rounded-lg ml-4 mr-4 mt-2 relative flex">
+
+            <img src="Div5/v-Photoroom.png" class="h-12 w-12 ml-2 mr-12">
+
+            <div class=" ml-12">
+
+                <p class="text-sm mt-1 mr-40 "> Samsung Q90 QLED TV <br> Eletronic </p>
+
+            </div>
+
+            <a class="text-sm mt-3 ml-12 mr-14">50</a>
+
+            <div class=" ml-72 mt-2 flex border-r h-8 w-20 ">
+
+                <svg class="text-red-700 h-4 w-5 mt-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M20 11.83a1 1 0 0 0-1 1v5.57a.6.6 0 0 1-.6.6H5.6a.6.6 0 0 1-.6-.6V5.6a.6.6 0 0 1 .6-.6h9.57a1 1 0 1 0 0-2H5.6A2.61 2.61 0 0 0 3 5.6v12.8A2.61 2.61 0 0 0 5.6 21h12.8a2.61 2.61 0 0 0 2.6-2.6v-5.57a1 1 0 0 0-1-1" />
+                    <path fill="currentColor"
+                        d="M10.72 11a1 1 0 0 0-1.44 1.38l2.22 2.33a1 1 0 0 0 .72.31a1 1 0 0 0 .72-.3l6.78-7a1 1 0 1 0-1.44-1.4l-6.05 6.26Z" />
+                </svg>
+
+                <a class="text-sm text-red-700 mt-1 ">Inactive</a>
+
+            </div>
+
+            <div class=" flex ml-6 ">
+
+                <svg class="text-red-700 h-4 w-5 mt-4" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M20 11.83a1 1 0 0 0-1 1v5.57a.6.6 0 0 1-.6.6H5.6a.6.6 0 0 1-.6-.6V5.6a.6.6 0 0 1 .6-.6h9.57a1 1 0 1 0 0-2H5.6A2.61 2.61 0 0 0 3 5.6v12.8A2.61 2.61 0 0 0 5.6 21h12.8a2.61 2.61 0 0 0 2.6-2.6v-5.57a1 1 0 0 0-1-1" />
+                    <path fill="currentColor"
+                        d="M10.72 11a1 1 0 0 0-1.44 1.38l2.22 2.33a1 1 0 0 0 .72.31a1 1 0 0 0 .72-.3l6.78-7a1 1 0 1 0-1.44-1.4l-6.05 6.26Z" />
+                </svg>
+
+                <a class="text-sm text-red-700 mt-3.5">Inactive</a>
+
+
+                <svg class=" h-4 w-5 mt-4 ml-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M21 6h-5V4.33A2.42 2.42 0 0 0 13.5 2h-3A2.42 2.42 0 0 0 8 4.33V6H3a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 4.33c0-.16.21-.33.5-.33h3c.29 0 .5.17.5.33V6h-4ZM18 19a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V8h12Z" />
+                    <path fill="currentColor"
+                        d="M9 17a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1m6 0a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1" />
+                </svg>
+
+                <a class="text-sm mt-3.5 "> Delete</a>
+
+            </div>
+
+        </div>
+
+        <!-- Quarta Coluna  -->
+        <div class="bg-white border-none shadow-md rounded-lg ml-4 mr-4 mt-2 relative flex">
+
+            <img src="Div5/v-Photoroom.png" class="h-12 w-12 ml-2 mr-12">
+
+            <div class=" ml-12">
+
+                <p class="text-sm mt-1 mr-36 "> Sony Master Series A9G <br> Photography </p>
+
+            </div>
+
+            <a class="text-sm mt-3 ml-16 mr-14">50</a>
+
+            <div class=" ml-72 mt-2 flex border-r h-8 w-20 ">
+
+                <svg class="text-red-700 h-4 w-5 mt-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M20 11.83a1 1 0 0 0-1 1v5.57a.6.6 0 0 1-.6.6H5.6a.6.6 0 0 1-.6-.6V5.6a.6.6 0 0 1 .6-.6h9.57a1 1 0 1 0 0-2H5.6A2.61 2.61 0 0 0 3 5.6v12.8A2.61 2.61 0 0 0 5.6 21h12.8a2.61 2.61 0 0 0 2.6-2.6v-5.57a1 1 0 0 0-1-1" />
+                    <path fill="currentColor"
+                        d="M10.72 11a1 1 0 0 0-1.44 1.38l2.22 2.33a1 1 0 0 0 .72.31a1 1 0 0 0 .72-.3l6.78-7a1 1 0 1 0-1.44-1.4l-6.05 6.26Z" />
+                </svg>
+
+                <a class="text-sm text-red-700 mt-1 ">Inactive</a>
+
+            </div>
+
+            <div class=" flex ml-6 ">
+
+                <svg class="text-red-700 h-4 w-5 mt-4" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M20 11.83a1 1 0 0 0-1 1v5.57a.6.6 0 0 1-.6.6H5.6a.6.6 0 0 1-.6-.6V5.6a.6.6 0 0 1 .6-.6h9.57a1 1 0 1 0 0-2H5.6A2.61 2.61 0 0 0 3 5.6v12.8A2.61 2.61 0 0 0 5.6 21h12.8a2.61 2.61 0 0 0 2.6-2.6v-5.57a1 1 0 0 0-1-1" />
+                    <path fill="currentColor"
+                        d="M10.72 11a1 1 0 0 0-1.44 1.38l2.22 2.33a1 1 0 0 0 .72.31a1 1 0 0 0 .72-.3l6.78-7a1 1 0 1 0-1.44-1.4l-6.05 6.26Z" />
+                </svg>
+
+                <a class="text-sm text-red-700 mt-3.5">Inactive</a>
+
+
+                <svg class=" h-4 w-5 mt-4 ml-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M21 6h-5V4.33A2.42 2.42 0 0 0 13.5 2h-3A2.42 2.42 0 0 0 8 4.33V6H3a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 4.33c0-.16.21-.33.5-.33h3c.29 0 .5.17.5.33V6h-4ZM18 19a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V8h12Z" />
+                    <path fill="currentColor"
+                        d="M9 17a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1m6 0a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1" />
+                </svg>
+
+                <a class="text-sm mt-3.5 "> Delete</a>
+
+            </div>
+
+
+        </div>
+
+        <div class=" mt-4 mb-3 ml-4 mr-4 flex justify-end ">
+
+            <div class=" h-6 w-14 bg-white border-none shadow-sm rounded-lg flex">
+
+                <p class=" mt-1 ml-1 text-xs">10</p>
+
+                <svg class="h-3 w-3 mt-1.5 ml-4" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                </svg>
+
+
+            </div>
+
+        </div>
+
+</body>
+
+</html>
